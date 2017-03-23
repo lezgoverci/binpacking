@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="container" class="container-fluid">
+
+			<div class="bin-title"><h2>Multi Bin Packing</h2></div>
+			<section id="bin-setup" class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form action="POST" id="bin-setup-form" class="form-horizontal">
+							<div class="col-md-12">
+								<h3>Container</h3>
+								<div class="col-md-2">
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="container-id" name="container-id" class="form-control" placeholder="ID">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="container-width" name="container-width" class="form-control" placeholder="Width">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="container-height" name="container-height" class="form-control" placeholder="Height">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="container-depth" name="container-depth" class="form-control" placeholder="Depth">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="container-max-weight" name="container-max-weight" class="form-control" placeholder="Max Weight">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12 pull-right">
+											<button class="btn btn-primary btn-block form-control" id="btn-add-container">Add Container</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-10">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div id="bin-containers"><p>No containers...</p></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<h3>Items</h3>
+								<div class="col-md-2">
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="item-id" name="item-id" class="form-control" placeholder="Item ID">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="item-width" name="item-width" class="form-control" placeholder="Width">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="item-height" name="item-height" class="form-control" placeholder="Height">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="item-depth" name="item-depth" class="form-control" placeholder="Depth">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="item-weight" name="item-weight" class="form-control" placeholder="Weight">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="item-quantity" name="item-quantity" class="form-control" placeholder="Quantity">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<label for="item-vr">VR</label>
+											<input type="checkbox" id="item-vr" name="item-vr">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12 pull-right">
+											<button class="btn btn-primary btn-block" class="form-control">Add Item</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-10">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											No items...
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+			<section id="bin-results" class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3>Packing Result</h3>
+					</div>
+				</div>
+			</section>
+			
+		</div>	
+
+	<!-- Container Template -->
+	<script id="template-container" type="mustache-template">
+		<div class="col-md-3 container-object">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<button type="button" class="close" aria-label="close" ><span aria-hidden="true" class="btn-remove-container">x</span></button>
+					
+						<strong>ID </strong><br/>{{id}}<br/>
+						<strong>Width </strong><br/>{{w}}<br/>
+						<strong>Height </strong><br/>{{h}}<br/>
+						<strong>Depth </strong><br/>{{d}}<br/>
+						<strong>Max Weight </strong><br/>{{max_wg}}
+
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<!-- Item Template -->
+	<script id="template-item" type="mustache-template">
+		<div class="col-md-3">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<button type="button" ><span aria-hidden="true" class="btn-remove-item">x</span></button>
+					<span><strong>ID </strong>{{item-id}}</span>
+					<span><strong>Width </strong>{{item-width}}</span>
+					<span><strong>Height </strong>{{item-height}}</span>
+					<span><strong>Depth </strong>{{item-depth}}</span>
+					<span><strong>Weight </strong>{{item-weight}}</span>
+					<span><strong>Quantity </strong>{{item-quantity}}</span>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/mustache.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/containers.js"></script>
+	<script src="js/container.js"></script>
+	<script src="js/containers_listener.js"></script>
+	</body>
+</html>
