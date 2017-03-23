@@ -7,6 +7,15 @@ var containers = (function () {
 		list.push(container);
 	};
 
+	function remove() {
+		$(this).closest(".container-object").addClass("to-remove");
+		var el = $(".to-remove");
+		var index = $(".container-object").index(el);
+		//el.remove();
+		//list.splice(index, 1);
+		console.log(index);
+	}
+
 	function appendContainer(container) {
 		var containerObject = Mustache.render(template, container);
 		if (list.length > 0) {
@@ -18,9 +27,7 @@ var containers = (function () {
 		}
 
 
-		$(".btn-remove-container").on("click", function () {
-			$(this).closest(".container-object").remove();
-		});
+		$(".btn-remove-container").on("click", remove);
 		
 	};
 
@@ -30,6 +37,7 @@ var containers = (function () {
 		
 	return {
 		add: add,
+		remove:remove,
 		getList:getList
 	}
 	
