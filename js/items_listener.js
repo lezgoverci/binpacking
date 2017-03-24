@@ -26,7 +26,7 @@
 
 	});
 
-	$(document).on("click", "btn-remove-item", function () {
+	$(document).on("click", ".btn-remove-item", function () {
 		items.remove(this);
 	});
 

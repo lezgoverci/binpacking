@@ -21,7 +21,7 @@ var items = (function () {
 
 	function remove(element) {
 		var el = $(element).closest(".item-object");
-		var index = binItems.index(el);
+		var index = $(".item-object").index(el);
 		el.remove();
 		list.splice(index, 1);
 		console.log(list);
