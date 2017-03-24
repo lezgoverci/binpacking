@@ -29,7 +29,14 @@ var packing = (function () {
 		$.ajax({
 			method: "POST",
 			url: 'https://global-api.3dbinpacking.com/packer/packIntoMany/',
-			data: this.query
+			query: this.query,
+			beforeSend: function (request) {
+				request.setRequestHeader("Authorization", "Negotiate");
+			},
+			async: true,
+			success: function (data) {
+				alert(JSON.stringify(data));
+			},
 		})
 			.done(function (msg) {
 				alert("Data Saved: " + msg);
