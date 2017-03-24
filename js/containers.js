@@ -7,13 +7,13 @@ var containers = (function () {
 		list.push(container);
 	};
 
-	function remove() {
-		$(this).closest(".container-object").addClass("to-remove");
-		var el = $(".to-remove");
+	function remove(element) {
+	
+		var el = $(element).closest(".container-object");
 		var index = $(".container-object").index(el);
-		//el.remove();
-		//list.splice(index, 1);
-		console.log(index);
+		el.remove();
+		list.splice(index, 1);
+		console.log(list);
 	}
 
 	function appendContainer(container) {
@@ -25,10 +25,6 @@ var containers = (function () {
 			$("#bin-containers").html("");
 			$("#bin-containers").append(containerObject);
 		}
-
-
-		$(".btn-remove-container").on("click", remove);
-		
 	};
 
 	function getList() {

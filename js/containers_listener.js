@@ -1,5 +1,5 @@
 (function () {
-	$("#bin-setup #btn-add-container").on("click", function (e) {
+	$(document).on("click","#bin-setup #btn-add-container", function (e) {
 		e.preventDefault();
 
 		var id = $("input#container-id").val();
@@ -19,6 +19,10 @@
 		$("input#container-height").val("");
 		$("input#container-depth").val("");
 		$("input#container-max-weight").val("");
+	});
+
+	$(document).on("click", ".btn-remove-container", function(){
+		containers.remove(this);
 	});
 	
 })()
