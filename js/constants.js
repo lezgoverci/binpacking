@@ -19,23 +19,23 @@ var constants = (function () {
 	var images_separated = 1;
 
 	return {
-		"username": this.username,
-		"api_key": this.api_key,
-		"images_background_color": this.images_background_color,
-		"images_bin_border_color": this.images_bin_border_color,
-		"images_bin_fill_color": this.images_bin_fill_color,
-		"images_item_border_color": this.images_item_border_color,
-		"images_item_fill_color": this.images_item_fill_color,
-		"images_item_back_border_color": this.images_item_back_border_color,
-		"images_sbs_last_item_fill_color": this.images_sbs_last_item_fill_color,
-		"images_sbs_last_item_border_color": this.images_sbs_last_item_border_color,
-		"images_width": this.images_width,
-		"images_height": this.images_height,
-		"images_source": this.images_source,
-		"images_sbs": this.images_sbs,
-		"stats": this.stats,
-		"item_coordinates": this.item_coordinates,
-		"images_complete": this.images_complete,
-		"images_separated":this.images_separated
+		"username": username,
+		"api_key": api_key,
+		"images_background_color": images_background_color,
+		"images_bin_border_color": images_bin_border_color,
+		"images_bin_fill_color": images_bin_fill_color,
+		"images_item_border_color": images_item_border_color,
+		"images_item_fill_color": images_item_fill_color,
+		"images_item_back_border_color": images_item_back_border_color,
+		"images_sbs_last_item_fill_color": images_sbs_last_item_fill_color,
+		"images_sbs_last_item_border_color": images_sbs_last_item_border_color,
+		"images_width": images_width,
+		"images_height": images_height,
+		"images_source": images_source,
+		"images_sbs": images_sbs,
+		"stats": stats,
+		"item_coordinates": item_coordinates,
+		"images_complete": images_complete,
+		"images_separated":images_separated
 	}	
 })();
